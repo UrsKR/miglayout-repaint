@@ -31,6 +31,7 @@ public class Main extends Application {
       @Override
       public void handle(ActionEvent actionEvent) {
         showContent(container);
+        container.layout();
       }
     });
     MigPane parent = new MigPane(new LC().fill().insets("0").wrapAfter(2));
@@ -46,7 +47,6 @@ public class Main extends Application {
   }
 
   private MigPane createContent() {
-    MigPane content = new MigPane(new LC().insets("0").wrapAfter(2));
     MigPane view = new MigPane(new LC().insets("0"));
     ComboBox comboBox = new ComboBox<>();
     comboBox.setItems(new ImmutableObservableList<>("There is a label to my left!"));
@@ -54,8 +54,7 @@ public class Main extends Application {
     Label label = new Label("I should be visible!");
     view.add(label);
     view.add(comboBox);
-    content.add(view, new CC().growX().pushX());
-    return content;
+    return view;
   }
 
 
