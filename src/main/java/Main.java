@@ -1,5 +1,4 @@
 import com.sun.javafx.collections.ImmutableObservableList;
-import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -50,7 +49,7 @@ public class Main extends Application {
     MigPane content = new MigPane(new LC().insets("0").wrapAfter(2));
     MigPane view = new MigPane(new LC().insets("0"));
     ComboBox comboBox = new ComboBox<>();
-    comboBox.setItems(new ImmutableObservableList("There is a label to my left!"));
+    comboBox.setItems(new ImmutableObservableList<>("There is a label to my left!"));
     
     Label label = new Label("I should be visible!");
     view.add(label);
