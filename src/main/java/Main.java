@@ -24,7 +24,7 @@ public class Main extends Application {
 
   private Scene createScene() {
     final MigPane container = new MigPane();
-    Button control = new Button("Show Content");
+    Button control = new Button("Add Content");
     control.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {
