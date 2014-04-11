@@ -42,7 +42,7 @@ public class Main extends Application {
 
   private void showContent(MigPane container) {
     container.getChildren().clear();
-    ComboBox comboBox = new ComboBox<>();
+    ComboBox<String> comboBox = new ComboBox<>();
     comboBox.setItems(new ImmutableObservableList<>("There is a label to my left!"));
 
     Label label = new Label("I should be visible!");
