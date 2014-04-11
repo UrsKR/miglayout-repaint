@@ -1,0 +1,14 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+idea { project { languageLevel = '1.7' } }
+
+dependencies {
+    compile files("${System.properties['java.home']}/lib/jfxrt.jar")
+    compile 'com.miglayout:miglayout-javafx:4.2'
+}
+
+repositories {
+        mavenCentral()
+}
