@@ -1,5 +1,6 @@
 import javafx.application.Application;
-import javafx.scene.Node;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -23,20 +24,34 @@ public class Main extends Application {
   }
 
   private void configureScene(Stage stage) {
-    MigPane container = createContainer();
+    MigPane parent = new MigPane(new LC().fill().insets("0").wrapAfter(2));
+    final MigPane container = new MigPane(new LC().fill().insets("0").wrapAfter(1));
+
+    Button control = new Button("Show Content");
+    parent.add(control);
+    parent.add(container);
+    
+    control.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent actionEvent) {
+        showContent(container);
+      }
+    });
+    
+    Scene scene = new Scene(parent);
+    stage.setScene(scene);
+    stage.setHeight(400);
+    stage.setWidth(800);
+  }
+
+  private void showContent(MigPane container) {
+    container.getChildren().clear();
     MigPane titlePane = createTitle();
     container.add(titlePane, new CC().pushX().growX());
     MigPane content = createContent();
     container.add(content, new CC().push().grow());
-    Scene scene = new Scene(container);
-    stage.setScene(scene);
-    stage.sizeToScene();
   }
-
-  private MigPane createContainer() {
-    return new MigPane(new LC().fill().insets("0").wrapAfter(1));
-  }
-
+  
 
   private MigPane createContent() {
     MigPane content = new MigPane(new LC().insets("0").wrapAfter(2));
