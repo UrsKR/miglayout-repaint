@@ -7,9 +7,9 @@ shown when the ComboBox is triggered or the Stage is resized.
 
 In JavaFX 2 running on Java 7, the label is shown right after clicking the button.
 
-Tested on OS X 10.9
-using JDK 1.8.0 with JavaFX 8
-and 1.7.21 with JavaFX 2
-with MigLayout 4.2
+Tested on OS X 10.9  
+using JDK 1.8.0 with JavaFX 8  
+and 1.7.21 with JavaFX 2  
+with MigLayout 4.2.
 
 I have observed the issue on Windows 7 as well.
