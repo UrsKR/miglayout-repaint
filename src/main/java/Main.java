@@ -7,8 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import net.miginfocom.layout.CC;
-import net.miginfocom.layout.LC;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class Main extends Application {
@@ -25,7 +23,7 @@ public class Main extends Application {
   }
 
   private Scene createScene() {
-    final MigPane container = new MigPane(new LC().fill().insets("0").wrapAfter(2));
+    final MigPane container = new MigPane();
     Button control = new Button("Show Content");
     control.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -33,7 +31,7 @@ public class Main extends Application {
         showContent(container);
       }
     });
-    MigPane parent = new MigPane(new LC().fill().insets("0").wrapAfter(2));
+    MigPane parent = new MigPane();
     parent.add(control);
     parent.add(container);
     return new Scene(parent);
@@ -44,8 +42,8 @@ public class Main extends Application {
     ComboBox<String> comboBox = new ComboBox<>();
     comboBox.setItems(new ImmutableObservableList<>("There is a label to my left!"));
     Label label = new Label("I should be visible!");
-    container.add(label, new CC().push().grow());
-    container.add(comboBox, new CC().push().grow());
+    container.add(label);
+    container.add(comboBox);
   }
 
 
