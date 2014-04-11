@@ -25,7 +25,7 @@ public class Main extends Application {
   }
 
   private Scene createScene() {
-    final MigPane container = new MigPane(new LC().fill().insets("0").wrapAfter(1));
+    final MigPane container = new MigPane(new LC().fill().insets("0").wrapAfter(2));
     Button control = new Button("Show Content");
     control.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -42,19 +42,12 @@ public class Main extends Application {
 
   private void showContent(MigPane container) {
     container.getChildren().clear();
-    MigPane content = createContent();
-    container.add(content, new CC().push().grow());
-  }
-
-  private MigPane createContent() {
-    MigPane view = new MigPane(new LC().insets("0"));
     ComboBox comboBox = new ComboBox<>();
     comboBox.setItems(new ImmutableObservableList<>("There is a label to my left!"));
-    
+
     Label label = new Label("I should be visible!");
-    view.add(label);
-    view.add(comboBox);
-    return view;
+    container.add(label, new CC().push().grow());
+    container.add(comboBox, new CC().push().grow());
   }
 
 
