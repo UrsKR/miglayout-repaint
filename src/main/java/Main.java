@@ -31,7 +31,6 @@ public class Main extends Application {
       @Override
       public void handle(ActionEvent actionEvent) {
         showContent(container);
-        container.layout();
       }
     });
     MigPane parent = new MigPane(new LC().fill().insets("0").wrapAfter(2));
@@ -44,7 +43,6 @@ public class Main extends Application {
     container.getChildren().clear();
     ComboBox<String> comboBox = new ComboBox<>();
     comboBox.setItems(new ImmutableObservableList<>("There is a label to my left!"));
-
     Label label = new Label("I should be visible!");
     container.add(label, new CC().push().grow());
     container.add(comboBox, new CC().push().grow());
